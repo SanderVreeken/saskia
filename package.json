@@ -23,6 +23,9 @@
 		"typescript": "^5.9.3",
 		"vite": "^7.3.1"
 	},
+	"pnpm": {
+		"onlyBuiltDependencies": ["esbuild"]
+	},
 	"dependencies": {
 		"@sveltejs/adapter-node": "^5.5.4",
 		"bits-ui": "^2.16.3",
