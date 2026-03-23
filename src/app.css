@@ -54,11 +54,13 @@ body {
 .petal {
   position: fixed;
   top: 0;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
   font-size: 1.2rem;
   animation: petal-fall linear infinite;
   will-change: transform;
-  z-index: 0;
+  z-index: 20;
+  user-select: none;
 }
 
 /* ── Unlock pulse glow ── */

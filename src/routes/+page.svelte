@@ -12,14 +12,29 @@
     size: 0.8 + (i % 4) * 0.2,
     opacity: 0.35 + (i % 3) * 0.15,
   }));
+
+  let flowerCount = $state(0);
 </script>
 
+<!-- Flower counter -->
+{#if flowerCount > 0}
+  <div class="fixed top-4 right-4 z-50 flex items-center gap-2 bg-card border border-border rounded-full px-4 py-2 shadow-md text-text font-serif text-sm">
+    <span>🌸</span>
+    <span>{flowerCount}</span>
+  </div>
+{/if}
+
 <!-- Floating petals layer -->
-<div aria-hidden="true">
+<div style="pointer-events: none;">
   {#each petals as p}
     <span
       class="petal"
+      role="button"
+      tabindex="0"
+      aria-label="Bloem"
       style="left:{p.left}%; animation-duration:{p.duration}s; animation-delay:{p.delay}s; font-size:{p.size}rem; opacity:{p.opacity};"
+      onclick={() => flowerCount++}
+      onkeydown={(e) => e.key === 'Enter' && flowerCount++}
     >{p.symbol}</span>
   {/each}
 </div>
